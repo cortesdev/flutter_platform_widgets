@@ -62,6 +62,7 @@ class BottomNavigationState extends State<BottomNavigation> {
 
   Widget _buildBottomNavigationBar() {
     return BottomNavigationBar(
+        backgroundColor: Colors.blue[600],
       type: BottomNavigationBarType.fixed,
       items: [
         _buildItem(icon: Icons.radio_button_checked, tabItem: TabItem.switches),
@@ -88,6 +89,6 @@ class BottomNavigationState extends State<BottomNavigation> {
   }
 
   Color _colorTabMatching({TabItem item}) {
-    return currentItem == item ? Theme.of(context).primaryColor : Colors.grey;
+    return currentItem == item ? Theme.of(context).primaryColor : Colors.white;
   }
 }

@@ -16,6 +16,8 @@
         android:name="io.flutter.app.FlutterApplication"
         android:label="platform_aware_widgets_flutter"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.mapbox.token" android:value="pk.eyJ1Ijoic2hhcmVpbm5vc3F1YWQiLCJhIjoiY2p3aHI0bGV0MGIzZDRibzExYmV2a2JyZyJ9.mk7ZKBJkgByqIcAoMCoVBg" />
+
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
