@@ -6,12 +6,12 @@ import 'package:platform_aware_widgets_flutter/common_widgets/platform_switch.da
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong/latlong.dart';
   
-class SwitchesPage extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
-  _SwitchesPageState createState() => _SwitchesPageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _SwitchesPageState extends State<SwitchesPage> {
+class _HomePageState extends State<HomePage> {
   bool _switchValue = false;
 
   void _showHelpDialog(BuildContext context) async {
@@ -82,7 +82,7 @@ class _SwitchesPageState extends State<SwitchesPage> {
               child: Container(
                 height: 340.0,            
                 child: ListView.builder(
-                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                  padding: EdgeInsets.symmetric(vertical: 100.0),
                   itemBuilder: (BuildContext context, int index) {
                     if(index % 2 == 0) {
                       return _buildCarousel(context, index ~/ 2);

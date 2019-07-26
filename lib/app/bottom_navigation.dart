@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:platform_aware_widgets_flutter/app/dialogs_page.dart';
-import 'package:platform_aware_widgets_flutter/app/switches_page.dart';
+import 'package:platform_aware_widgets_flutter/app/home_page.dart';
 
 enum TabItem {
-  switches,
+  home,
   dialogs,
 }
 
 String tabItemName(TabItem tabItem) {
   switch (tabItem) {
-    case TabItem.switches:
-      return "switches";
+    case TabItem.home:
+      return "home";
     case TabItem.dialogs:
       return "dialogs";
   }
@@ -23,12 +23,12 @@ class BottomNavigation extends StatefulWidget {
 }
 
 class BottomNavigationState extends State<BottomNavigation> {
-  TabItem currentItem = TabItem.switches;
+  TabItem currentItem = TabItem.home;
 
   _onSelectTab(int index) {
     switch (index) {
       case 0:
-        _updateCurrentItem(TabItem.switches);
+        _updateCurrentItem(TabItem.home);
         break;
       case 1:
         _updateCurrentItem(TabItem.dialogs);
@@ -52,8 +52,8 @@ class BottomNavigationState extends State<BottomNavigation> {
 
   Widget _buildBody() {
     switch (currentItem) {
-      case TabItem.switches:
-        return SwitchesPage();
+      case TabItem.home:
+        return HomePage();
       case TabItem.dialogs:
         return DialogsPage();
     }
@@ -62,10 +62,10 @@ class BottomNavigationState extends State<BottomNavigation> {
 
   Widget _buildBottomNavigationBar() {
     return BottomNavigationBar(
-        backgroundColor: Colors.blue[600],
+        backgroundColor: Colors.blue,
       type: BottomNavigationBarType.fixed,
       items: [
-        _buildItem(icon: Icons.radio_button_checked, tabItem: TabItem.switches),
+        _buildItem(icon: Icons.radio_button_checked, tabItem: TabItem.home),
         _buildItem(icon: Icons.call_to_action, tabItem: TabItem.dialogs),
       ],
       onTap: _onSelectTab,
@@ -74,6 +74,7 @@ class BottomNavigationState extends State<BottomNavigation> {
 
   BottomNavigationBarItem _buildItem({IconData icon, TabItem tabItem}) {
     String text = tabItemName(tabItem);
+    
     return BottomNavigationBarItem(
       icon: Icon(
         icon,
