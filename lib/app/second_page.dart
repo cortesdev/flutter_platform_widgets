@@ -6,12 +6,12 @@ import 'package:platform_aware_widgets_flutter/common_widgets/platform_switch.da
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong/latlong.dart';
   
-class HomePage extends StatefulWidget {
+class SecondPage extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _SecondPageState createState() => _SecondPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _SecondPageState extends State<SecondPage> {
   bool _switchValue = false;
 
   void _showHelpDialog(BuildContext context) async {
@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0.0,16.0,0.0,12.0),
                       child: Text("Hello, Ricci.", style: TextStyle(fontSize: 30.0, color: Colors.white),),
-                    ),
+                    ),                    
                   ],
                 ),                
                 decoration: BoxDecoration(
@@ -78,32 +78,7 @@ class _HomePageState extends State<HomePage> {
                   // Update the state of the app.
                   // ...
                 },
-              ),             
-              Container(
-                // This align moves the children to the bottom
-                child: Align(
-                    alignment: FractionalOffset.bottomCenter,
-                    // This container holds all the children that will be aligned
-                    // on the bottom and should not scroll with the above ListView
-                    child: Container(
-                        margin: const EdgeInsets.only(bottom: 0),
-                        child: Column(
-                      children: <Widget>[
-                        Divider(),
-                        ListTile(
-                            leading: Icon(Icons.settings),
-                            title: Text('Settings')),
-                        ListTile(
-                            leading: Icon(Icons.help),
-                            title: Text('Help and Feedback')),
-                        ListTile(
-                            leading: Icon(Icons.exit_to_app),
-                            title: Text('logout'))
-                      ],
-                    )
-                  )
-                )
-              )
+              ),
             ],
           ),
       ),      
@@ -133,6 +108,10 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: Icon(Icons.account_circle, size: 45.0, color: Colors.white,),
+                    ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0.0,16.0,0.0,12.0),
                       child: Text("Hello, Ricci.", style: TextStyle(fontSize: 30.0, color: Colors.white),),

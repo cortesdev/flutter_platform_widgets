@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:platform_aware_widgets_flutter/app/dialogs_page.dart';
 import 'package:platform_aware_widgets_flutter/app/home_page.dart';
+import 'package:platform_aware_widgets_flutter/app/second_page.dart';
 
 enum TabItem {
   home,
+  second,
   dialogs,
 }
 
@@ -11,6 +13,8 @@ String tabItemName(TabItem tabItem) {
   switch (tabItem) {
     case TabItem.home:
       return "home";
+    case TabItem.second:
+      return "second";
     case TabItem.dialogs:
       return "dialogs";
   }
@@ -31,6 +35,9 @@ class BottomNavigationState extends State<BottomNavigation> {
         _updateCurrentItem(TabItem.home);
         break;
       case 1:
+        _updateCurrentItem(TabItem.second);
+        break;
+      case 2:
         _updateCurrentItem(TabItem.dialogs);
         break;
     }
@@ -54,6 +61,8 @@ class BottomNavigationState extends State<BottomNavigation> {
     switch (currentItem) {
       case TabItem.home:
         return HomePage();
+      case TabItem.second:
+        return SecondPage();
       case TabItem.dialogs:
         return DialogsPage();
     }
@@ -62,10 +71,11 @@ class BottomNavigationState extends State<BottomNavigation> {
 
   Widget _buildBottomNavigationBar() {
     return BottomNavigationBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.pink[300],
       type: BottomNavigationBarType.fixed,
       items: [
         _buildItem(icon: Icons.radio_button_checked, tabItem: TabItem.home),
+        _buildItem(icon: Icons.apps, tabItem: TabItem.second),
         _buildItem(icon: Icons.call_to_action, tabItem: TabItem.dialogs),
       ],
       onTap: _onSelectTab,
